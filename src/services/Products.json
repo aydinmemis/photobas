@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "productName": "Not Kart(3 lü)",
+    "productImageUrl":
+      "https://images.unsplash.com/photo-1492485840844-0318fc72945e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a5764dd96ddcab855de7bc533897bdb5&auto=format&fit=crop&w=1651&q=80",
+    "fiyat": 10.23,
+    "categoryId": 2,
+    "description": "açıklama satırı"
+  },
+  {
+    "id": "2",
+    "productName": "blok Kart",
+    "productImageUrl":
+      "https://images.unsplash.com/photo-1492485840844-0318fc72945e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a5764dd96ddcab855de7bc533897bdb5&auto=format&fit=crop&w=1651&q=80",
+    "fiyat": 12.6,
+    "categoryId": 2,
+    "description": "açıklama satırı"
+  },
+  {
+    "id": "3",
+    "productName": "Fileli Seramik ( 30x30cm )",
+    "productImageUrl":
+      "https://images.unsplash.com/photo-1492485840844-0318fc72945e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a5764dd96ddcab855de7bc533897bdb5&auto=format&fit=crop&w=1651&q=80",
+    "fiyat": 15,
+    "categoryId": 2,
+    "description": "açıklama satırı"
+  },
+  {
+    "id": "4",
+    "productName": "kuppa",
+    "productImageUrl":
+      "https://images.unsplash.com/photo-1492485840844-0318fc72945e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a5764dd96ddcab855de7bc533897bdb5&auto=format&fit=crop&w=1651&q=80",
+    "categoryId": 2,
+    "fiyat": 20,
+    "description": "açıklama satırı"
+  },
+  {
+    "id": "1",
+    "productName": "Fotograf",
+    "productImageUrl":
+      "https://images.unsplash.com/photo-1492485840844-0318fc72945e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a5764dd96ddcab855de7bc533897bdb5&auto=format&fit=crop&w=1651&q=80",
+    "fiyat": 10,
+    "categoryId": 2,
+    "description": "açıklama satırı"
+  },
+  {
+    "id": "2",
+    "productName": "Fotograf",
+    "productImageUrl":
+      "https://images.unsplash.com/photo-1492485840844-0318fc72945e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a5764dd96ddcab855de7bc533897bdb5&auto=format&fit=crop&w=1651&q=80",
+    "fiyat": 12,
+    "categoryId": 2,
+    "description": "açıklama satırı"
+  },
+  {
+    "id": "3",
+    "productName": "Fotograf",
+    "productImageUrl":
+      "https://images.unsplash.com/photo-1492485840844-0318fc72945e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a5764dd96ddcab855de7bc533897bdb5&auto=format&fit=crop&w=1651&q=80",
+    "fiyat": 15,
+    "categoryId": 2,
+    "description": "açıklama satırı"
+  },
+  {
+    "id": "4",
+    "productName": "Fotograf",
+    "productImageUrl":
+      "https://images.unsplash.com/photo-1492485840844-0318fc72945e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a5764dd96ddcab855de7bc533897bdb5&auto=format&fit=crop&w=1651&q=80",
+    "categoryId": 2,
+    "fiyat": 20,
+    "description": "açıklama satırı"
+  }
+]
