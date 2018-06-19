@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, StatusBar, FlatList, TouchableOpacity, Image, Dimensions, Alert } from 'react-native';
+import { View, Text, StyleSheet, StatusBar, FlatList, AsyncStorage, TouchableOpacity, Image, Dimensions, Alert } from 'react-native';
 
 import { Container } from '../components/container';
 import { Header } from '../components/header';
@@ -8,9 +8,13 @@ import { CategoriesListItems } from '../components/categories';
 
 import allCategories from '../services/categories.json';
 
+import { getCategoriesFromServer } from '../services/getCategories';
+import constants from '../config/constants';
+
 const ITEM_WIDTH = Dimensions.get('window').width;
 import { inject, observer } from 'mobx-react/native';
-@inject('nav', 'cartStore')
+//import categoriesStore from '../stores/categoriesStore';
+@inject('nav', 'cartStore', 'CategoriesStore')
 @observer
 export default class HomeScreen extends Component {
   constructor() {
@@ -19,6 +23,7 @@ export default class HomeScreen extends Component {
     this.state = {
       data: allCategories,
       columns: 1,
+      categoryList: [],
     };
   }
 
@@ -49,13 +54,28 @@ export default class HomeScreen extends Component {
     const { nav } = this.props;
     nav.handleChangeRoutePropsData('productScreen', item);
   };
+
   componentDidMount() {
-    // this.setState({ data: allCategories });
+    // if (CategoriesStore.veriVarmi !== true) {
+    //   //   //storage bak ve categori listesi çekilip çekilmediğine bak
+    //   //   // true  değil ise veriyi çek
+    //   this.getCategories();
+    // }
+    //this.setState({ data: allCategories });
     //console.log(this.state.data);
   }
-  getCategories() {
+  getCategories = () => {
+    getCategoriesFromServer()
+      .then(categories => {
+        this.setState({ categoryList: categories });
+        console.log(this.state.categoryList);
+      })
+      .catch(err => {
+        this.setState({ categoryList: [] });
+        console.error(err);
+      });
     // this.setState({ data: allCategories });
-  }
+  };
   render() {
     const { data, columns } = this.state;
     const { cartStore } = this.props;
