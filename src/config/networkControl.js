@@ -9,12 +9,16 @@ function MiniOfflineSign() {
             animationType='slide'
             transparent={true}
             visible={this.state.isConnected}
-        >
+            onRequestClose={() => {
+                alert('Modal has been closed.');
+            }}>
+            >
             <View style={{ backgroundColor: '#000', width: '100%', height: '100%', opacity: 0.4, position: 'absolute' }} />
 
             <View style={styles.netAlert}>
-                <View style={styles.offlineContainer}>
-                    <Text style={styles.offlineText}>İnternet Bağlantısı Yok</Text>
+                <View style={styles.netAlertContent}>
+                    <Text style={styles.netAlertTitle}>İnternet Bağlantısı Yok</Text>
+                    <Text style={styles.netAlertDesc}>Ağ Bağlantısı bulunamadı. Lütfen internet erişiminizi kontrol ediniz..</Text>
                 </View>
             </View>
         </Modal>
@@ -55,17 +59,28 @@ class NetworkControl extends Component {
 }
 
 const styles = StyleSheet.create({
-    offlineContainer: {
-        backgroundColor: '#b52424',
-        height: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        width,
-        position: 'absolute',
-        top: 30
+    netAlert: {
+        width: '100%',
+        maxHeight: '56%',
+
+        backgroundColor: '#cc3232',
+        alignSelf: 'center'
     },
-    offlineText: { color: '#fff' }
+    netAlertContent: {
+        padding: 10,
+        marginTop: 20
+    },
+    netAlertTitle: {
+        fontFamily: 'Roboto-Bold',
+        fontSize: 19,
+        color: '#fff'
+    },
+    netAlertDesc: {
+        fontFamily: 'Roboto-Light',
+        fontSize: 15,
+        color: '#fff'
+    }
+
 });
 
 export default NetworkControl;

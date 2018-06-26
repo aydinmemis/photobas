@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, YellowBox } from 'react-native';
+import { View, Text, StyleSheet, YellowBox, Modal, NetInfo } from 'react-native';
 import Loader from '../config/loader';
-import NetworkControl from '../config/networkControl';
+
 
 
 
@@ -14,8 +14,10 @@ export default class SplashScreen extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            loading: false,
-            netControl: false,
+            loading: true,
+
+            isConnected: true,
+            netAlert: false,
         }
 
         YellowBox.ignoreWarnings([
@@ -23,9 +25,18 @@ export default class SplashScreen extends Component {
             'Warning: componentWillReceiveProps is deprecated',
         ]);
 
-
+        NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
 
     }
+    handleConnectivityChange = isConnected => {
+
+        if (isConnected) {
+            this.setState({ isConnected });
+        } else {
+            this.setState({ isConnected });
+        }
+    };
+
 
     static navigatorStyle = {
         navBarHidden: true, // default olarak gelen navigationBar'ın görünmemesini sağlıyoruz
@@ -40,26 +51,44 @@ export default class SplashScreen extends Component {
 
     async isCategoryControl() {
         const { CategoriesStore } = this.props;
-        const kategoriCekilmisMi = CategoriesStore.state;
-        if (kategoriCekilmisMi != "OK") {
-            await CategoriesStore.fetchCategories();
-            this.setState({ loading: true });
+        await CategoriesStore.fetchCategories();
+        this.setState({ loading: false });
+        //this.goHome();
 
-        }
 
     }
+
+
+
     async componentWillMount() {
-        await this.isCategoryControl();
-        if (this.state.loading) {
-            this.goHome();
+
+        if (this.state.isConnected) {
+            await this.isCategoryControl();
+
         }
     }
     render() {
         const { title, container, subTitle, titleWrapper, loading } = styles;
         return (
-
             <View style={container}>
-                <NetworkControl />
+                <Modal
+                    animationType='slide'
+                    transparent={true}
+                    visible={!this.state.isConnected}
+                    onRequestClose={() => {
+                        alert('Modal has been closed.');
+                    }}>
+
+
+                    <View style={{ backgroundColor: '#000', width: '100%', height: '100%', opacity: 0.4, position: 'absolute' }} />
+
+                    <View style={styles.netAlert}>
+                        <View style={styles.netAlertContent}>
+                            <Text style={styles.netAlertTitle}>İnternet Bağlantısı Yok</Text>
+                            <Text style={styles.netAlertDesc}>Ağ Bağlantısı bulunamadı. Lütfen internet erişiminizi kontrol ediniz..</Text>
+                        </View>
+                    </View>
+                </Modal>
                 <View style={loading}>
                     <Loader loading={this.state.loading} />
                 </View>
@@ -96,13 +125,33 @@ const styles = StyleSheet.create({
         fontWeight: '200',
     },
     titleWrapper: {
-        flex: 2,
+        flex: 1.5,
         justifyContent: 'center',
 
     },
     loading: {
         flex: 0.5,
         justifyContent: 'center'
+    }, netAlert: {
+        width: '100%',
+        maxHeight: '56%',
+
+        backgroundColor: '#cc3232',
+        alignSelf: 'center'
+    },
+    netAlertContent: {
+        padding: 10,
+        marginTop: 20
+    },
+    netAlertTitle: {
+        fontFamily: 'Roboto-Bold',
+        fontSize: 19,
+        color: '#fff'
+    },
+    netAlertDesc: {
+        fontFamily: 'Roboto-Light',
+        fontSize: 15,
+        color: '#fff'
     }
 
 
