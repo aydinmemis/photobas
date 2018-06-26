@@ -12,7 +12,7 @@ function MiniOfflineSign() {
         >
             <View style={{ backgroundColor: '#000', width: '100%', height: '100%', opacity: 0.4, position: 'absolute' }} />
 
-            <View>
+            <View style={styles.netAlert}>
                 <View style={styles.offlineContainer}>
                     <Text style={styles.offlineText}>İnternet Bağlantısı Yok</Text>
                 </View>
