@@ -30,10 +30,7 @@ export default class ProductScren extends Component {
     const { nav } = this.props;
     nav.handleChangeRoute('root');
   };
-  componentDidMount() {
-    // this.setState({ data: allCategories });
-    //console.log(this.state.data);
-  }
+
   getProductInCategories() {
     console.log('category çağırılıdı');
   }
@@ -43,10 +40,10 @@ export default class ProductScren extends Component {
     console.log(this.props);
     nav.handleChangeRoutePropsData('productDetailScreen', item);
   };
-  componentWillMount() {
-    const { nav } = this.props;
-    //getProductInCategories(nav.propsData.categoryId);
-  }
+  // componentWillMount() {
+  //   //const { nav } = this.props;
+  //   //getProductInCategories(nav.propsData.categoryId);
+  // }
   render() {
     const { data, columns } = this.state;
     const { nav } = this.props;
@@ -57,7 +54,7 @@ export default class ProductScren extends Component {
     return (
       <Container>
         <StatusBar hidden={true} />
-        <Header onPressCart={this.goBasket} onPressBack={this.goBack} title={`${nav.propsData.categoryName} kategorisi`} />
+        <Header onPressCart={this.goBasket} onPressBack={this.goBack} title={`${nav.propsData.title} kategorisi`} />
         <View style={[styles.container]}>
           <FlatList
             numColumns={columns}
@@ -66,6 +63,7 @@ export default class ProductScren extends Component {
             refreshing={false}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
+              //home dan gelen bilgilerle değişecek
               <ProductListItems
                 itemWidth={(ITEM_WIDTH - 25 * columns) / columns}
                 ImageUrl={item.productImageUrl}

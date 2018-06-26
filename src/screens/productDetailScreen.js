@@ -93,8 +93,8 @@ export default class ProductDetailScreen extends Component {
       includeExif: true,
     })
       .then(images => {
-        this.setState({          
-          images:  images.map(i => {
+        this.setState({
+          images: images.map(i => {
             return {
               uri: i.path,
               width: i.width,
@@ -103,14 +103,14 @@ export default class ProductDetailScreen extends Component {
             };
           }),
         });
-         // console.log(this.state.images);
+        // console.log(this.state.images);
         this.imagesToBase64Convert();
       })
       .catch(e => alert(e));
   }
 
   renderImage(image) {
-    return <Image style={{ width: 80, height: 80, margin: 10, resizeMode: 'cover', borderRadius:15 }} source={image} />;
+    return <Image style={{ width: 80, height: 80, margin: 10, resizeMode: 'cover', borderRadius: 15 }} source={image} />;
   }
 
   renderAsset(image) {
@@ -138,12 +138,12 @@ export default class ProductDetailScreen extends Component {
       total: 20,
     });
   }
-  componentWillMount() {
-    // this.setState({ image: null, imagesList: null });
-  }
-  componentWillUpdate() {}
+  // componentWillMount() {
+  //   this.setState({ image: null, imagesList: null });
+  // }
 
-  getCategories() {}
+
+  getCategories() { }
   // goProduct = item => {
   //   // this.setState({ data: allCategories });
   //   const { nav } = this.props;
@@ -195,7 +195,7 @@ export default class ProductDetailScreen extends Component {
             categoryId={nav.propsData.categoryId}
             productId={nav.propsData.productId}
             onPressBack={this.goBack}
-            //adet={2}
+          //adet={2}
           />
         </View>
         <View

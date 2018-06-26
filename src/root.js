@@ -15,6 +15,15 @@ export default class App {
 
   startApp(root, data) {
     switch (root) {
+      case 'splashScreen':
+        Navigation.startSingleScreenApp({
+          screen: {
+            screen: 'photo.SplashScreen',
+          },
+          header: null,
+          passProps: {},
+        });
+        return;
       case 'root':
         Navigation.startSingleScreenApp({
           screen: {

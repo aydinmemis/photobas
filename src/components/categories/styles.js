@@ -16,7 +16,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 20,
+    //marginHorizontal: 20,
     // margin: 40,
     marginVertical: 10,
     elevation: 5,

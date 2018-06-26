@@ -13,7 +13,7 @@ class NavRoute {
     this.propsData = propsData;
   }
   appInitialized() {
-    this.route = 'root';
+    this.route = 'splashScreen';
   }
 }
 export default new NavRoute();
