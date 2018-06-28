@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, YellowBox, Modal, NetInfo } from 'react-native';
+import { View, Text, StyleSheet, YellowBox, Modal, NetInfo, Alert } from 'react-native';
 import Loader from '../config/loader';
-
 
 
 
@@ -15,9 +14,6 @@ export default class SplashScreen extends Component {
         super(props)
         this.state = {
             loading: true,
-
-            isConnected: true,
-            netAlert: false,
         }
 
         YellowBox.ignoreWarnings([
@@ -25,18 +21,7 @@ export default class SplashScreen extends Component {
             'Warning: componentWillReceiveProps is deprecated',
         ]);
 
-        NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
-
     }
-    handleConnectivityChange = isConnected => {
-
-        if (isConnected) {
-            this.setState({ isConnected });
-        } else {
-            this.setState({ isConnected });
-        }
-    };
-
 
     static navigatorStyle = {
         navBarHidden: true, // default olarak gelen navigationBar'ın görünmemesini sağlıyoruz
@@ -52,43 +37,48 @@ export default class SplashScreen extends Component {
     async isCategoryControl() {
         const { CategoriesStore } = this.props;
         await CategoriesStore.fetchCategories();
-        this.setState({ loading: false });
-        //this.goHome();
+        const durum = CategoriesStore.state;
 
-
-    }
-
-
-
-    async componentWillMount() {
-
-        if (this.state.isConnected) {
-            await this.isCategoryControl();
-
+        if (durum != "error") {
+            this.setState({ loading: false });
+            this.goHome();
         }
+
     }
+
+
+    internetControl = new Promise((resolve, reject) => {
+        NetInfo.isConnected.fetch().then(isConnected => {
+            if (isConnected) {
+                resolve(isConnected);
+            } else {
+                reject(isConnected);
+            }
+        });
+    })
+
+    componentWillMount() {
+
+        this.internetControl.then((res) => {
+            this.setState({ isConnected: res });
+            this.isCategoryControl();
+
+        }).catch(err => {
+            Alert.alert("Uyarı", "internet bağlantınızı kontrol ediniz");
+        })
+
+
+
+    }
+
+
+
     render() {
         const { title, container, subTitle, titleWrapper, loading } = styles;
+
         return (
             <View style={container}>
-                <Modal
-                    animationType='slide'
-                    transparent={true}
-                    visible={!this.state.isConnected}
-                    onRequestClose={() => {
-                        alert('Modal has been closed.');
-                    }}>
 
-
-                    <View style={{ backgroundColor: '#000', width: '100%', height: '100%', opacity: 0.4, position: 'absolute' }} />
-
-                    <View style={styles.netAlert}>
-                        <View style={styles.netAlertContent}>
-                            <Text style={styles.netAlertTitle}>İnternet Bağlantısı Yok</Text>
-                            <Text style={styles.netAlertDesc}>Ağ Bağlantısı bulunamadı. Lütfen internet erişiminizi kontrol ediniz..</Text>
-                        </View>
-                    </View>
-                </Modal>
                 <View style={loading}>
                     <Loader loading={this.state.loading} />
                 </View>

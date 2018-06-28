@@ -9,7 +9,8 @@ async function getCategoriesFromServer() {
     setAsyncStorageCategories(categoriesJson, true);
     return categoriesJson;
   } catch (error) {
-    console.error(`Hata Oluştu :${error}`);
+    return null;
+
   }
 }
 

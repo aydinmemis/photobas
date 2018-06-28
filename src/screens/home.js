@@ -104,13 +104,14 @@ export default class HomeScreen extends Component {
                     <FlatList
                         numColumns={columns}
                         data={this.state.categoryList}
+                        //  data={data}
                         // onRefresh={this.getCategories}
                         refreshing={false}
                         keyExtractor={(item, index) => index.toString()}
                         //ItemSeparatorComponent={() => <View style={[styles.seperator]} />}
                         renderItem={({ item }) => (
                             <CategoriesListItems
-                                itemWidth={(ITEM_WIDTH - 10 * columns) / columns}
+                                itemWidth={(ITEM_WIDTH - 40 * columns) / columns}
                                 ImageUrl={item.url}
                                 category={item.title}
                                 onPress={() => this.goCategory(item)}

@@ -23,13 +23,18 @@ class CategoriesStore {
         categories => {
           this.categoryList = categories;
           this.state = "OK";
+          return true;
           // console.log(this.categoryList.slice());
         }).catch(err => {
+          this.state = "error";
           console.error(err);
+          return false;
         });
     }
     catch (error) {
+      this.state = "error";
       console.error(error);
+      return false;
     }
   }
 

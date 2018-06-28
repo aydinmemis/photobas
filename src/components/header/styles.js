@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     // fontWeight: '400',
 
     // marginLeft: 15,
-    fontFamily: 'Roboto-Light',
+    fontFamily: 'Roboto-Bold',
 
     // marginBottom: 10,
   },
