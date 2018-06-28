@@ -8,6 +8,16 @@ import Footer from '../components/footer/Footer';
 
 const ITEM_WIDTH = Dimensions.get('window').width;
 
+/**
+ *TODO:
+ * - ürün kargo fiyatıda sepet ekranında gösterilecek
+ * - kargo fiyat bilgisi service'den gelecek
+ * - listedeki her bir ürüne detay linki verilecek ve basıldığında o ürüne eklenen resimler slayt olarak gösterilecek. silme işlemi yapılmayacak
+ *
+ * @export
+ * @class CartBasketScreen
+ * @extends {Component}
+ */
 @inject('nav', 'cartStore')
 @observer
 export default class CartBasketScreen extends Component {

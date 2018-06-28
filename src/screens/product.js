@@ -8,6 +8,18 @@ import ProductsInCategory from '../services/Products.json';
 
 const ITEM_WIDTH = Dimensions.get('window').width;
 
+
+/**
+ *TODO:
+ * - kategori sayfasından gelen item'in ürün listesi çekilip sayfaya basılacak
+ * - sayfa header'inda  kategori başlığı çok uzunsa daha az gösterilecek.. 
+ * - sepete ekle butonu'na action verilecek. home sayfasındaki gibi
+ * - service'de n ürüne kaç adet resim ekleneceği maksimum adet verilecek o aded miktarınca fotograf eklenecek
+ *
+ * @export
+ * @class ProductScren
+ * @extends {Component}
+ */
 @inject('nav', 'cartStore')
 export default class ProductScren extends Component {
   constructor() {
