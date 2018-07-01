@@ -51,6 +51,15 @@ export default class App {
           header: null,
         });
         return;
+      case 'cartItemImagesView':
+        Navigation.startSingleScreenApp({
+          screen: {
+            screen: 'photo.CartItemImagesView',
+          },
+          header: null,
+          // passProps: {},
+        });
+        return;
       case 'cartBasketScreen':
         Navigation.startSingleScreenApp({
           screen: {
@@ -59,6 +68,7 @@ export default class App {
           },
           header: null,
         });
+
     }
   }
 }

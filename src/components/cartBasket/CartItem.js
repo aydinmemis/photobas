@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Alert, View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
 import { inject, observer, Observer } from 'mobx-react/native';
 
 const { height, width } = Dimensions.get('window');
@@ -29,7 +30,11 @@ class CartItem extends Component {
     );
     // this.setState({ refresh: !this.state.refresh });
   }
-
+  _goItemImagesScreen(item) {
+    const { nav } = this.props;
+    // console.log(item);
+    nav.handleChangeRoutePropsData('cartItemImagesView', item);
+  }
   render() {
     const { cartStore } = this.props;
     const { containerStyle, lastItemStyle, imageView, viewStyle, cartImages, imageStyle, imageStyleView, textStyle, counterStyle, priceStyle, deleteStyle } = styles;
@@ -42,7 +47,9 @@ class CartItem extends Component {
         <View style={styles.cartView}>
           {cartStore.cartList.map((item, i) => {
             return (
+
               <View key={i} style={viewStyle}>
+
                 <View style={containerStyle}>
                   <View style={imageView}>
                     <Image source={{ uri: item.productImage }} style={imageStyle} />
@@ -77,7 +84,11 @@ class CartItem extends Component {
                   </View>
                 </View>
                 <View style={lastItemStyle}>
-                  <Text> {item.images.length - 1} adet resim eklendi</Text>
+                  <TouchableOpacity onPress={() => this._goItemImagesScreen(item)}>
+                    <Text style={{ color: '#2d31e0' }}> {item.images.length - 1} adet resim eklendi. </Text>
+
+
+                  </TouchableOpacity>
                   {/* alltaki kod seçilen resimleri gösterir ama çok resimde programıkapatıyor onun için kullanmadım*/}
                   {/* <ScrollView horizontal>
                     {item.images.map((item, index) => (
@@ -89,7 +100,9 @@ class CartItem extends Component {
                     ))}
                   </ScrollView> */}
                 </View>
+
               </View>
+
             );
           })}
         </View>
@@ -146,6 +159,7 @@ const styles = StyleSheet.create({
   },
   lastItemStyle: {
     flexDirection: 'column',
+    justifyContent: 'space-around',
     alignItems: 'center',
     flex: 1,
     marginLeft: 15,

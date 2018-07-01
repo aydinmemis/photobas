@@ -4667,6 +4667,10 @@ react-native-image-crop-picker@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.20.0.tgz#29b8df35eb17ff7ad61524ec09832f49e552427d"
 
+react-native-interactive-image-gallery@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-interactive-image-gallery/-/react-native-interactive-image-gallery-0.1.2.tgz#35a35ddddabb9713e7180f3bd932f55287b25c81"
+
 react-native-linear-gradient@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.4.0.tgz#51d8ea12bb72a59bede9edc87b694b16b64cf435"

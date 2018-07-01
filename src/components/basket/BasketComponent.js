@@ -5,7 +5,9 @@ import TotalComp from '../total/TotalComponent';
 const BasketComponent = () => {
   const { basketContainerStyle, bagsTextStyle, priceTextStyle } = styles;
   return (
+
     <View style={basketContainerStyle}>
+
       <TotalComp />
     </View>
   );
@@ -13,7 +15,7 @@ const BasketComponent = () => {
 
 const styles = {
   basketContainerStyle: {
-    flex: 0.5,
+    flex: 1,
     flexDirection: 'row',
     // justifyContent: 'center',
     // alignItems: 'center',

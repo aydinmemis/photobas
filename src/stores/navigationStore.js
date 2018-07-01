@@ -13,7 +13,8 @@ class NavRoute {
     this.propsData = propsData;
   }
   appInitialized() {
-    this.route = 'splashScreen';
+    //  this.route = 'splashScreen';
+    this.route = 'cartBasketScreen';
   }
 }
 export default new NavRoute();
