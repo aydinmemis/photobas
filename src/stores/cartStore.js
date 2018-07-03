@@ -17,6 +17,7 @@ class CartStore {
         price: _price,
         quantity: _quantity,
         images: [],
+        imagesUrl: [],
         productImage: _productImage,
         total: (_price * _quantity).toFixed(2),
         index,
@@ -36,12 +37,13 @@ class CartStore {
     //this.cartList.replace(filteredList);
   }
 
-  addImagesItem(item, _images) {
+  addImagesItem(item, _images, _imagesUrl) {
     console.log(item);
     this.cartList.forEach(l => {
       if (l.index === item[0].index) {
         for (let i = 0; i <= _images.length; i++) {
           l.images.push(_images[i]);
+          l.imagesUrl.push(_imagesUrl[i]);
         }
       }
     });

@@ -24,6 +24,7 @@ export default class ProductDetailScreen extends Component {
       image: null,
       images: null,
       imagesList: [],
+      imagesUrlList: [],
       productName: null,
       productImage: null,
       productId: null,
@@ -51,8 +52,9 @@ export default class ProductDetailScreen extends Component {
       fs
         .readFile(imagePath, 'base64')
         .then(data => {
-          //console.log(`data:${mime};base64, ${data}`);
+          console.log(imagePath);
           let _images = `data:${mime};base64,${data}`;
+          let imagesUrl = imagePath;
           //base64 olarak çıktı verir
           // suncuya göderilierken state içinde mime type'da gödnermek gerek ki onageöre sunucda convert işlemi yapılsın
           // console.log(data);
@@ -60,7 +62,7 @@ export default class ProductDetailScreen extends Component {
           //imagesList.type = mime;
           //imagesList.image = data;
           // alltaki kod imageslist'teki dizine ekleme yapar
-          this.setState({ imagesList: [...this.state.imagesList, _images] });
+          this.setState({ imagesList: [...this.state.imagesList, _images], imagesUrlList: [...this.state.imagesUrlList, imagesUrl] });
 
           //  return Blob.build(data, { type: `${mime};BASE64` });
         })
@@ -156,7 +158,7 @@ export default class ProductDetailScreen extends Component {
     let _lastIndex = cartStore.cartLastIndex;
     let _lastItem = cartStore.cartList.slice(_lastIndex);
 
-    cartStore.addImagesItem(_lastItem, this.state.imagesList);
+    cartStore.addImagesItem(_lastItem, this.state.imagesList, this.state.imagesUrlList);
 
     nav.handleChangeRoute('cartBasketScreen');
     //    cartStore.resetCounter();
