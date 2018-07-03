@@ -1,2 +1,2 @@
-# _Fotograf Baskı Sipariş Uygulaması_
+# Fotograf Baskı Sipariş Uygulaması
 
