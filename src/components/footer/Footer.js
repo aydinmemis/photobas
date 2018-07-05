@@ -34,7 +34,7 @@ const Footer = ({ btnYeniUrunEkle, btnSiparisiTamamla }) => {
                 fontFamily: 'Roboto-Bold',
               }}
             >
-              Siparişi Tamamla
+              Siparişi Onayla
             </Text>
           </View>
         </TouchableOpacity>
@@ -48,7 +48,7 @@ const styles = {
     flex: 1,
     paddingRight: 15,
     paddingLeft: 15,
-    borderTopWidth: 1,
+    //borderTopWidth: 1,
     // borderColor: '#e2e2e2',
   },
   buttonContainerStyle: {
@@ -58,20 +58,20 @@ const styles = {
     paddingTop: 15,
   },
   closeButtonStyle: {
-    backgroundColor: '#ffa500',
+    backgroundColor: '#00BDCD',
     padding: 10,
 
     paddingRight: 10,
     paddingLeft: 10,
-    // borderRadius: 100,
+    borderRadius: 5,
   },
   checkoutButtonStyle: {
-    backgroundColor: '#00BCD1', // #1BDDCD //#00BCD1
+    backgroundColor: '#e67e22', // #1BDDCD //#00BCD1
     padding: 10,
 
     paddingRight: 50,
     paddingLeft: 50,
-    // borderRadius: 100,
+    borderRadius: 5,
   },
 };
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Platform, ScrollView, View, StatusBar, Text, StyleSheet, TouchableWithoutFeedback, TouchableOpacity, Dimensions, Modal } from 'react-native';
-import ImageElement from './ImageElement';
-import Icon from 'react-native-vector-icons/FontAwesome';
-//import ImageBrowser from 'react-native-interactive-image-gallery'
+import { Platform, ScrollView, BackHandler, View, StatusBar, Text, StyleSheet, TouchableWithoutFeedback, TouchableOpacity, Dimensions, Modal } from 'react-native';
+//import ImageElement from './ImageElement';
+//import Icon from 'react-native-vector-icons/FontAwesome';
+import ImageBrowser from 'react-native-interactive-image-gallery'
+
 import { inject, observer } from 'mobx-react/native';
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
 @inject('nav', 'cartStore')
@@ -26,8 +27,8 @@ export default class CartItemImagesView extends Component {
     }
 
     setModalVisible(visible, imageKey) {
-        this.setState({ modalImage: this.state.images[imageKey] });
-        this.setState({ modalVisible: visible });
+        this.setState({ modalImage: this.state.images[imageKey], modalVisible: visible });
+
     }
     getImage() {
         return this.state.modalImage;
@@ -36,55 +37,68 @@ export default class CartItemImagesView extends Component {
         const { nav } = this.props;
         nav.handleChangeRoute('cartBasketScreen');
     }
+
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    }
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    }
+    handleBackPress = () => {
+        const { nav } = this.props;
+        nav.handleChangeRoute('cartBasketScreen');
+
+    }
     render() {
         // console.log(this.state.images);
-        // const imageURLs = this.state.images.filter(img => { return img != undefined && img != null }).map(
-        //     (img, index) =>
-        //         ({
+        const imageURLs = this.state.images.filter(img => { return img != undefined && img != null }).map(
+            (img, index) =>
+                ({
 
-        //             URI: img,
-        //             thumbnail: img,
-        //             id: String(index),
-        //             title: 'test',
-        //             description: 'test acıklama'//.description
-        //         })
+                    URI: img,
+                    thumbnail: img,
+                    id: String(index),
+                    // title: 'test',
+                    //description: 'test acıklama'//.description
+                })
 
-        // );
-
-
-        let images = this.state.images.filter(img => { return img != undefined && img != null }).map(
-            (img, key) => {
-                return <TouchableWithoutFeedback key={key} onPress={() => { this.setModalVisible(true, key) }}>
-                    <View style={styles.imageWrap}>
-                        <ImageElement imagesource={img}></ImageElement>
-                    </View>
-                </TouchableWithoutFeedback>
-
-            });
-        // return <ImageBrowser images={imageURLs} closeText='Kapat' />
-        return (
-            <ScrollView>
-                <View style={styles.ContainerExitButton}>
-                    <TouchableOpacity style={styles.button} onPress={() => this._backCart()}>
-                        <Icon name="times-circle" style={styles.icon} size={35} color="#262626" />
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.container} >
-
-                    <Modal style={styles.modal} animationType={'fade'} transparent={true} visible={this.state.modalVisible} onRequestClose={() => { }}>
-                        <View style={styles.modal}>
-
-                            <ImageElement imagesource={this.state.modalImage}></ImageElement>
-                            <Text style={styles.text} onPress={() => { this.setModalVisible(false) }}>Kapat</Text>
-                        </View>
-                    </Modal>
-
-                    {images}
-
-                </View>
-            </ScrollView>
         );
+
+
+        // let images = this.state.images.filter(img => { return img != undefined && img != null }).map(
+        //     (img, key) => {
+        //         return <TouchableWithoutFeedback key={key} onPress={() => { this.setModalVisible(true, key) }}>
+        //             <View style={styles.imageWrap}>
+        //                 <ImageElement imagesource={img}></ImageElement>
+        //             </View>
+        //         </TouchableWithoutFeedback>
+
+        //     });
+
+        return <ImageBrowser onPressImage={() => { return null }} images={imageURLs} closeText='Kapat' />
+        // return (
+        //     <ScrollView>
+        //         <View style={styles.ContainerExitButton}>
+        //             <TouchableOpacity style={styles.button} onPress={() => this._backCart()}>
+        //                 <Icon name="times-circle" style={styles.icon} size={35} color="#262626" />
+        //             </TouchableOpacity>
+        //         </View>
+
+        //         <View style={styles.container} >
+
+        //             <Modal style={styles.modal} animationType={'fade'} transparent={true} visible={this.state.modalVisible} onRequestClose={() => { }}>
+        //                 <View style={styles.modal}>
+
+        //                     <ImageElement imagesource={this.state.modalImage}></ImageElement>
+        //                     <Text style={styles.text} onPress={() => { this.setModalVisible(false) }}>Kapat</Text>
+        //                 </View>
+        //             </Modal>
+
+        //             {images}
+
+        //         </View>
+        //     </ScrollView>
+        // );
 
     }
 }

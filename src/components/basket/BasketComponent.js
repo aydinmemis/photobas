@@ -15,13 +15,17 @@ const BasketComponent = () => {
 
 const styles = {
   basketContainerStyle: {
-    flex: 1,
+    flex: 0.5,
     flexDirection: 'row',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // borderColor: '#e2e2e2',
-    backgroundColor: '#262626',
-    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: '#cccc',
+    backgroundColor: '#fff',
+    borderBottomWidth: 0.8,
+    borderTopWidth: 0.8,
+    padding: 15,
+
+    // marginTop: 10,
   },
   bagsTextStyle: {
     fontSize: 12,

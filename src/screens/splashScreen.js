@@ -59,16 +59,16 @@ export default class SplashScreen extends Component {
 
     componentWillMount() {
 
+
+
         this.internetControl.then((res) => {
+
             this.setState({ isConnected: res });
             this.isCategoryControl();
 
         }).catch(err => {
             Alert.alert("Uyarı", "internet bağlantınızı kontrol ediniz");
         })
-
-
-
     }
 
 
@@ -100,18 +100,18 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#604CC7'
+        backgroundColor: '#fff'
 
     },
     title: {
         fontSize: 45,
-        color: '#fff',
+        color: '#000',
         fontFamily: 'Roboto-Light',
         fontWeight: 'bold'
 
     },
     subTitle: {
-        color: '#fff',
+        color: '#2626',
         fontWeight: '200',
     },
     titleWrapper: {

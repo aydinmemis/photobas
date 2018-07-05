@@ -55,37 +55,24 @@ class CartItem extends Component {
                     <Image source={{ uri: item.productImage }} style={imageStyle} />
                   </View>
                   <View style={textStyle}>
-                    <Text style={{ color: '#2e2f30' }}>{item.productName}</Text>
+                    <Text style={{ color: '#2e2f30', fontSize: 12, fontFamily: 'Roboto-Light' }}>{item.productName}</Text>
                     <View style={priceStyle}>
-                      <Text style={{ color: '#2e2f30', fontSize: 14 }}>{item.total} TL</Text>
+                      <Text style={{ color: '#2e2f30', fontSize: 12, fontFamily: 'Roboto-Light' }}>{item.total} TL</Text>
                     </View>
                   </View>
                   <View style={lastItemStyle}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, marginRight: 15 }}>
-                      <TouchableOpacity onPress={() => this._decrement(item)}>
-                        <View>
-                          <Icon name="minus-square" size={25} color="#ccc" />
-                        </View>
-                      </TouchableOpacity>
-                      <View style={{ backgroundColor: '#fff', width: 25, height: 25, borderRadius: 5, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ color: '#262626' }}>{item.quantity}</Text>
-                      </View>
-                      <TouchableOpacity onPress={() => this._increment(item)}>
-                        <View>
-                          <Icon name="plus-square" size={25} color="#ccc" backgroundColor="#fff" />
-                        </View>
-                      </TouchableOpacity>
-                    </View>
-                    <View style={{ paddingLeft: 10, paddingRight: 25, marginTop: 15 }}>
+
+                    <View style={{ paddingLeft: 10, paddingRight: 0, marginBottom: 15 }}>
                       <TouchableOpacity onPress={() => this._deleteItem(item.index)}>
-                        <Icon name="trash" size={25} color="#262626" />
+                        <Icon name="times" size={20} color="#F35C68" />
                       </TouchableOpacity>
                     </View>
+
                   </View>
                 </View>
                 <View style={lastItemStyle}>
                   <TouchableOpacity onPress={() => this._goItemImagesScreen(item)}>
-                    <Text style={{ color: '#2d31e0' }}> {item.images.length - 1} adet resim eklendi. </Text>
+                    <Text style={{ color: '#4dc187', fontSize: 12, fontFamily: 'Roboto-Light' }}> {item.images.length - 1} adet resim eklendi. </Text>
 
 
                   </TouchableOpacity>
@@ -99,13 +86,30 @@ class CartItem extends Component {
                       </TouchableOpacity>
                     ))}
                   </ScrollView> */}
+                  <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, justifyContent: 'flex-end', marginRight: 15 }}>
+                    <TouchableOpacity onPress={() => this._decrement(item)}>
+                      <View>
+                        <Icon name="minus-square" size={20} color="#ccc" />
+                      </View>
+                    </TouchableOpacity>
+                    <View style={{ backgroundColor: '#fff', width: 25, height: 25, borderRadius: 5, justifyContent: 'center', alignItems: 'center' }}>
+                      <Text style={{ color: '#2e2f30', fontSize: 12, fontFamily: 'Roboto-Light' }}>{item.quantity}</Text>
+                    </View>
+                    <TouchableOpacity onPress={() => this._increment(item)}>
+                      <View>
+                        <Icon name="plus-square" size={20} color="#ccc" />
+                      </View>
+                    </TouchableOpacity>
+                  </View>
                 </View>
 
               </View>
 
+
             );
           })}
         </View>
+
       </ScrollView>
     );
   }
@@ -119,15 +123,24 @@ const NoCart = () => (
 
 const styles = StyleSheet.create({
   cartView: {
-    backgroundColor: '#F7F7F7',
+    backgroundColor: '#fff',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    //marginBottom: 15,
-    // margin: 40,
+    marginHorizontal: 20,
+    borderBottomWidth: 1,
+
+    borderColor: 'lightgray',
+    //paddingBottom: 10,
     marginVertical: 10,
-    elevation: 5,
-    overflow: 'hidden',
+    //paddingBottom: 15,
+    //marginBottom: 10,
+    //marginTop: 15,
+    //margin: 20,
+    //marginVertical: 10,
+    //elevation: 5,
+    // paddingBottom: 10,
+    //overflow: 'hidden',
     //borderRadius: 10,
     // borderWidth: 1,
     //borderColor: '#4dc187',
@@ -137,28 +150,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     // marginLeft: 15,
-    // margin: 40,
-    //marginVertical: 3,
+    marginBottom: 10,
+
+
     //marginRight:5 ,
-    borderColor: '#e2e2e2',
-    //backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    paddingBottom: 10,
+
+    // backgroundColor: '#fff',
+
+
+
+
+
   },
   containerStyle: {
     marginTop: 10,
     flexDirection: 'row',
     flex: 1,
     //borderBottomWidth: 1,
-    borderColor: '#e2e2e2',
-    //padding: 10,
+
+    // padding: 15,
     // paddingLeft: 15,
     // backgroundColor: '#fff',
     marginLeft: 15,
-    paddingBottom: 10,
+
   },
   lastItemStyle: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     flex: 1,
@@ -173,7 +190,7 @@ const styles = StyleSheet.create({
     height: 50,
     //marginRight: 20,
     alignItems: 'center',
-    borderRadius: 5,
+    //borderRadius: 5,
   },
   cartImages: {
     width: 40,

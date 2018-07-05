@@ -14,7 +14,9 @@ class CartListItems extends Component {
 const styles = StyleSheet.create({
   container: {
     marginTop: 15,
+
     flex: 3,
+    backgroundColor: '#eee',
   },
 });
 

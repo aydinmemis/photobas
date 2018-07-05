@@ -23,22 +23,22 @@ export default class TotalComponent extends Component {
       <View style={containerStyle}>
 
         <View style={goodsStyle}>
-          <Text style={{ color: '#fff', fontFamily: 'Roboto-Bold', fontSize: 14, paddingLeft: 15 }}>Sipariş Ücreti : </Text>
-          <Text style={{ color: '#fff', fontFamily: 'Roboto-Bold', fontSize: 14, paddingRight: 15 }}>{cartStore.cartTotal} TL </Text>
+          <Text style={{ color: '#2f3640', fontFamily: 'Roboto-Light', fontSize: 14, paddingLeft: 5 }}>Ara Toplam </Text>
+          <Text style={{ color: '#4A4A4A', fontFamily: 'Roboto-Light', fontSize: 14, paddingRight: 5 }}>{cartStore.cartTotal} TL </Text>
         </View>
 
         <View style={goodsStyle}>
-          <Text style={{ color: '#fff', fontFamily: 'Roboto-Bold', fontSize: 14, paddingLeft: 15 }}>Kargo Ücreti   : </Text>
-          <Text style={{ color: '#fff', fontFamily: 'Roboto-Bold', fontSize: 14, paddingRight: 15 }}>-- TL </Text>
+          <Text style={{ color: '#2f3640', fontFamily: 'Roboto-Light', fontSize: 14, paddingLeft: 5 }}>Kargo  </Text>
+          <Text style={{ color: '#4A4A4A', fontFamily: 'Roboto-Light', fontSize: 14, paddingRight: 5 }}>-- TL </Text>
         </View>
 
 
         <View style={goodsStyle}>
-          <Text style={{ color: '#fff', fontFamily: 'Roboto-Bold', fontSize: 14, paddingLeft: 15 }}>Toplam (KDV Dahil) : </Text>
-          <Text style={{ color: '#fff', fontFamily: 'Roboto-Bold', fontSize: 14, paddingRight: 15 }}>{cartStore.cartTotal} TL </Text>
+          <Text style={{ color: '#2f3640', fontFamily: 'Roboto-Light', fontSize: 14, paddingLeft: 5 }}>Toplam   </Text>
+          <Text style={{ color: '#262626', fontFamily: 'Roboto-Light', fontSize: 14, paddingRight: 5 }}>{cartStore.cartTotal} TL </Text>
         </View>
 
-      </View >
+      </View>
     );
   }
 }
@@ -47,10 +47,10 @@ const styles = {
   containerStyle: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-start',
     //alignItems: 'center',
-    marginLeft: 15,
-    marginRight: 15,
+    marginLeft: 5,
+    marginRight: 5,
 
     //flexWrap: 'nowrap',
     // backgroundColor: 'cyan',
