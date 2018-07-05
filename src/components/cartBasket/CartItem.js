@@ -55,9 +55,9 @@ class CartItem extends Component {
                     <Image source={{ uri: item.productImage }} style={imageStyle} />
                   </View>
                   <View style={textStyle}>
-                    <Text style={{ color: '#2e2f30', fontSize: 12, fontFamily: 'Roboto-Light' }}>{item.productName}</Text>
+                    <Text style={{ color: '#2e2f30', fontSize: 13, fontFamily: 'Roboto-Light' }}>{item.productName}</Text>
                     <View style={priceStyle}>
-                      <Text style={{ color: '#2e2f30', fontSize: 12, fontFamily: 'Roboto-Light' }}>{item.total} TL</Text>
+                      <Text style={{ color: '#2e2f30', fontSize: 13, fontFamily: 'Roboto-Light' }}>{item.total} TL</Text>
                     </View>
                   </View>
                   <View style={lastItemStyle}>
@@ -72,7 +72,7 @@ class CartItem extends Component {
                 </View>
                 <View style={lastItemStyle}>
                   <TouchableOpacity onPress={() => this._goItemImagesScreen(item)}>
-                    <Text style={{ color: '#4dc187', fontSize: 12, fontFamily: 'Roboto-Light' }}> {item.images.length - 1} adet resim eklendi. </Text>
+                    <Text style={{ color: '#4dc187', fontSize: 13, fontFamily: 'Roboto-Light' }}> {item.images.length - 1} adet resim eklendi. </Text>
 
 
                   </TouchableOpacity>
@@ -89,15 +89,15 @@ class CartItem extends Component {
                   <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, justifyContent: 'flex-end', marginRight: 15 }}>
                     <TouchableOpacity onPress={() => this._decrement(item)}>
                       <View>
-                        <Icon name="minus-square" size={20} color="#ccc" />
+                        <Icon name="minus-square" size={22} color="#ccc" />
                       </View>
                     </TouchableOpacity>
                     <View style={{ backgroundColor: '#fff', width: 25, height: 25, borderRadius: 5, justifyContent: 'center', alignItems: 'center' }}>
-                      <Text style={{ color: '#2e2f30', fontSize: 12, fontFamily: 'Roboto-Light' }}>{item.quantity}</Text>
+                      <Text style={{ color: '#2e2f30', fontSize: 13, fontFamily: 'Roboto-Light' }}>{item.quantity}</Text>
                     </View>
                     <TouchableOpacity onPress={() => this._increment(item)}>
                       <View>
-                        <Icon name="plus-square" size={20} color="#ccc" />
+                        <Icon name="plus-square" size={22} color="#ccc" />
                       </View>
                     </TouchableOpacity>
                   </View>
@@ -128,11 +128,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 20,
-    borderBottomWidth: 1,
 
-    borderColor: 'lightgray',
     //paddingBottom: 10,
-    marginVertical: 10,
+    marginVertical: 15,
     //paddingBottom: 15,
     //marginBottom: 10,
     //marginTop: 15,
@@ -150,9 +148,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     // marginLeft: 15,
-    marginBottom: 10,
+    // marginBottom: 10,
 
-
+    borderBottomWidth: 1,
+    paddingBottom: 10,
+    borderColor: 'lightgray',
     //marginRight:5 ,
 
     // backgroundColor: '#fff',
