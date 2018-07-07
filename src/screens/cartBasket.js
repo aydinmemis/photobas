@@ -16,7 +16,7 @@ const ITEM_WIDTH = Dimensions.get('window').width;
  * @class CartBasketScreen
  * @extends {Component}
  */
-@inject('nav', 'cartStore')
+@inject('nav', 'cartStore', 'addresStore')
 @observer
 export default class CartBasketScreen extends Component {
   constructor() {
@@ -40,6 +40,9 @@ export default class CartBasketScreen extends Component {
     this.setState({ total: _total.toFixed(2) });
   }
   btnSiparisiTamamla = () => {
+    const { nav } = this.props;
+
+    nav.handleChangeRoute('addressInfoScreen');
     console.log('siparişi tamamla butonuna basıldı');
   };
   btnYeniUrunEkle = () => {

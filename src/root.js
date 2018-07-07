@@ -60,6 +60,15 @@ export default class App {
           // passProps: {},
         });
         return;
+      case 'addressInfoScreen':
+        Navigation.startSingleScreenApp({
+          screen: {
+            screen: 'photo.AddresInfoScreen',
+            title: 'Adres Bilgisi'
+          },
+          header: null,
+        });
+        return;
       case 'cartBasketScreen':
         Navigation.startSingleScreenApp({
           screen: {

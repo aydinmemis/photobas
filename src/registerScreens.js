@@ -5,6 +5,7 @@ import ProductDetailScreen from './screens/productDetailScreen';
 import CartBasketScreen from './screens/cartBasket';
 import SplashScreen from './screens/splashScreen';
 import CartItemImagesView from './components/cartBasket/CartItemImagesView';
+import AddresInfoScreen from './screens/AddresInfoScreen';
 
 import Store from './stores';
 import Provider from './Provider';
@@ -16,6 +17,6 @@ export function registerScreens() {
   Navigation.registerComponent('photo.ProductDetailScreen', () => ProductDetailScreen, Store, Provider);
   Navigation.registerComponent('photo.CartBasketScreen', () => CartBasketScreen, Store, Provider);
   Navigation.registerComponent('photo.CartItemImagesView', () => CartItemImagesView, Store, Provider);
-
+  Navigation.registerComponent('photo.AddresInfoScreen', () => AddresInfoScreen, Store, Provider);
 
 }
