@@ -1,6 +1,8 @@
 
 import { AsyncStorage } from 'react-native';
 import constants from '../config/constants';
+import _ from 'lodash';
+import iller from './il_ilce.json';
 
 const utilities = {
 
@@ -51,6 +53,15 @@ const utilities = {
     }
     catch (error) {
       console.log(error)
+    }
+  },
+  async getIl() {
+    try {
+      let _illers = await iller.map(i => { return { "il": i.il, "plaka": i.plaka } });
+      let _iller = _.uniqWith(_illers, _.isEqual); //json içinde tekrar eden kayıtları almaz
+      return _iller;
+    } catch (error) {
+      console.log(error);
     }
   }
 

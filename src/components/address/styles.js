@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 const styles = StyleSheet.create({
     header: {
         height: 60,
-        padding: 10,
-        marginHorizontal: 20,
+        paddingTop: 10,
+        marginLeft: 20,
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -17,13 +17,16 @@ const styles = StyleSheet.create({
     },
     inputBox: {
         marginVertical: 5,
-        width: 300,
-        backgroundColor: '#eee',
+        marginHorizontal: 10,
+        marginBottom: 10,
+        width: 250,
+        // height: 30,
+        // backgroundColor: 'red',
         // borderRadius: 2,
         // paddingHorizontal: 10,
-        fontSize: 12,
+        fontSize: 14,
         color: '#262626',
-        marginHorizontal: 5,
+        // marginHorizontal: 5,
     },
     inputLabel: {
         color: '#262626',

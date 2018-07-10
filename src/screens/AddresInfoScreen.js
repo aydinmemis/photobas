@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, StyleSheet, BackHandler, StatusBar } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, BackHandler, StatusBar, KeyboardAvoidingView } from 'react-native';
 import { inject, observer } from 'mobx-react/native';
 import { Container } from '../components/container';
 import { Header, AddressInput } from '../components/address';
@@ -25,7 +25,10 @@ export default class AddressInfoScreen extends Component {
             <Container>
                 <StatusBar hidden={true} />
                 <Header onPressBack={this.handleBackPress} title={'Adres Bilgisi'} />
+
                 <AddressInput />
+
+
             </Container>
         );
     }
