@@ -63,6 +63,21 @@ const utilities = {
     } catch (error) {
       console.log(error);
     }
+  },
+  async getIlce(city) {
+    try {
+
+      let _ilcelers = await iller.filter(i => i.il == city).map((i) => {
+
+        return { "Id": i.id, "ilce": i.ilce }
+
+      });
+      // let _ilceler = _.uniqWith(_ilcelers, _.isEqual); //json içinde tekrar eden kayıtları almaz
+
+      return _ilcelers;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 }
