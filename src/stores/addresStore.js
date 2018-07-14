@@ -1,10 +1,11 @@
 import { observable, action } from "mobx";
+
 class AdresStore {
     @observable address = [];
 
     @action('adres ekler')
     addAddress(_phone, _email, _name, _address, _state, _city, _tcNo) {
-        this.address.push({
+        let _adres= this.address.push({
             Phone: _phone,
             Name: _name,
             Address: _address,
@@ -13,7 +14,7 @@ class AdresStore {
             Email: _email,
             TcNo: _tcNo
         });
-        return this.addAddress;
+        return _adres;
     }
 }
 
